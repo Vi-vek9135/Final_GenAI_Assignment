@@ -73,7 +73,7 @@ async def upload_pdf(pdf_name: str, files: list[UploadFile] = File(...) ):
         except Exception as e:
           raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error saving file: {e}"
+            detail=f"Error occured while  saving file: {e}"
           )
 
 
@@ -84,7 +84,7 @@ async def upload_pdf(pdf_name: str, files: list[UploadFile] = File(...) ):
     except Exception as e:
       raise HTTPException(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-        detail=f"Error loading PDF: {e}"
+        detail=f"Error occured while loading PDF: {e}"
       )
 
 
@@ -107,7 +107,7 @@ async def upload_pdf(pdf_name: str, files: list[UploadFile] = File(...) ):
     except Exception as e:
       raise HTTPException(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-          detail=f"Error processing and saving text: {e}"
+          detail=f"Error occured while processing and saving text: {e}"
       )
 
 
@@ -159,7 +159,7 @@ def process_and_save_to_chroma(pdf_path, pdf_name):
       vector_index = Chroma.from_texts(texts, embeddings).as_retriever()
       return f"Document '{pdf_name}' successfully converted to embeddings and saved to Chroma DB."
     except Exception as e:
-      return f"Error processing PDF '{pdf_name}': {e}"
+      return f"Error occured while processing PDF '{pdf_name}': {e}"
 
 
 
@@ -181,7 +181,7 @@ async def perform_qa(pdf_name: str, question: str):
       
       return {"answer": answer}
     except Exception as e:
-      return {"error": f"Error answering question: {e}"}
+      return {"error": f"Error answering question or answer not found: {e}"}
 
 
 
@@ -216,7 +216,7 @@ def get_answer_using_palm2(relevant_segments, question):
       response = chain({"input_documents":relevant_segments, "question": question}, return_only_outputs=True)
       return response
     except Exception as e:
-       return f"An error occurred: {str(e)}"
+       return f"An error occurred while retrieving answer: {str(e)}"
 
 
 
