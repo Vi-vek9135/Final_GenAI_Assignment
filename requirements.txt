@@ -1,0 +1,12 @@
+google-generativeai
+python-dotenv
+langchain
+PyPDF2
+chromadb
+langchain_google_genai
+numpy
+kaleido 
+python-multipart
+pypdf
+fastapi[all]
+uvicorn
