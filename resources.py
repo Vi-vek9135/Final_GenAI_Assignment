@@ -1,0 +1,2 @@
+#           https://github.com/google/generative-ai-docs/blob/main/examples/gemini/python/langchain/Gemini_LangChain_QA_Chroma_WebLoad.ipynb
+#           https://www.youtube.com/watch?v=GkuT67JKaM4&pp=ygUlaG93IHRvIHVwbG9hZCBkb2N1bWVudHMgdXNpbmcgZmFzdGFwaQ%3D%3D
